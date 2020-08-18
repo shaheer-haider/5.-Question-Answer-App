@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+{% extends 'layout.html'%}
+{% block body %}
+  <head>
+    <style>
+      {% block title %}Home{% endblock %}
+    </style>
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="container theme-showcase" role="main">
+
+      <div class="page-header">
+        <h1>Answered Questions</h1>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="list-group">
+            {% for q in all_answered_questions %}
+            <a href="{{url_for('question', question_id = q['question_id'])}}" class="list-group-item">
+              <h4 class="list-group-item-heading">{{q['question_text']}}</h4>
+              <p class="list-group-item-text">Asked by: {{q['test_user_name']}}</p>
+              <p class="list-group-item-text">Answered by: {{q['expert_name']}}</p>
+            </a>
+            {% endfor %}
+          </div>
+        </div><!-- /.col-lg-12 -->
+      </div>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
+{% endblock %}

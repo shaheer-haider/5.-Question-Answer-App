@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'layout.html'%}
+{% block body %}
+  <head>
+    <style>
+      {% block title %}Question{% endblock %}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container theme-showcase" role="main">
+
+      <div class="jumbotron">
+        <h1>{{qad['question_text']}}</h1>
+        <br>
+        <br>
+        <p style="font-size: 30px;">{{qad['answer_text']}}</p>
+        <br>
+        <p><a class="btn btn-primary btn-lg">Asked By: {{ qad['asked_by'] }}</a></p>
+        <p><a class="btn btn-primary btn-lg">Answered By: {{ qad['answered_by'] }}</a></p>
+      </div>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
+
+{% endblock %}

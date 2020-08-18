@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'layout.html'%}
+{% block body %}
+  <head>
+    <style>
+      {% block title %}Home{% endblock %}
+    </style>
+  </head>
+
+  <body>
+
+    <div class="container theme-showcase" role="main">
+
+      <div class="page-header">
+        <h1>Users</h1>
+        <h6>Click to promote to expert</h6>
+      </div>
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="list-group">
+
+            {% for r in user_result %}
+
+
+            <a href="{{ url_for('promoted', user_id = r['id'] )}}" class="list-group-item {% if r['expert']==1 %} active {% endif %}">
+              <h4 class="list-group-item-heading" value={{r['id']}}>{{r['name']}} {% if r['admin'] == 1 %} ( ADMIN ) {% endif %}</h4>
+            </a>
+
+            {% endfor %}
+
+            <!--list-group-item ki class to sab ko deni hai, active only experts or admin ki hai-->
+
+          </div>
+        </div><!-- /.col-lg-12 -->
+      </div>
+
+    </div> <!-- /container -->
+
+  </body>
+</html>
+{% endblock %}
